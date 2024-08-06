@@ -1,0 +1,1112 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<meta charset="utf-8" />
+
+	<style id="general-style">
+		@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500|Open+Sans+Condensed:300,700&display=swap');
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			outline: none;
+		}
+
+			*::selection {
+				background-color: rgba(0,0,0,0.2);
+			}
+
+		html, body {
+			font-size: 20px;
+		}
+
+		html {
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding: 2rem;
+			background-image: linear-gradient(to bottom, #2f2743, #1b2e4f);
+			scroll-behavior: smooth;
+		}
+
+		body {
+			max-width: 1440px;
+			min-width: 800px;
+			margin: 0 auto;
+			overflow: hidden;
+			border-radius: 1rem;
+			box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+			font-family: 'Maven Pro', sans-serif;
+			letter-spacing: 0.02em;
+		}
+
+		img {
+			display: block;
+		}
+
+		ul, ol {
+			list-style: none inside;
+		}
+
+		a {
+			text-decoration: none
+		}
+
+		.holder {
+			padding: 0 10%;
+			overflow: hidden;
+		}
+
+		h2 {
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: bold;
+			font-size: 2rem;
+			line-height: 2rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.text {
+			font-size: 0.85rem;
+			line-height: 1.4em;
+			color: rgba(255,255,255,0.75);
+		}
+
+		.button {
+			display: inline-block;
+			padding: 0 2rem;
+			border: 1px solid;
+			border-radius: 1rem;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 0.85rem;
+			font-weight: 300;
+			text-align: center;
+			line-height: 2rem;
+			background-color: rgba(255,255,255,0.05);
+			color: #e6539e;
+			cursor: pointer;
+		}
+
+			.button:hover {
+				border-color: transparent;
+				box-shadow: 0 0 0.5rem -0.25rem rgba(0,0,0,0.75);
+				background-color: rgba(255,255,255,0.2);
+			}
+
+			.button:active {
+				box-shadow: none;
+				background-color: rgba(0,0,0,0.1);
+			}
+	</style>
+
+	<title>District X</title>
+</head>
+<body>
+
+<header class="page-header holder">
+	<style id="page-header-style">
+		.page-header {
+			text-align: center;
+			padding: 5% 10% 20% 10%;
+			background-image: url(img/logo-x.svg), url(img/background-01.svg), radial-gradient(circle, #9d3b62, transparent);
+			background-position: center, center bottom, center;
+			background-size: auto 50%, 100% auto, auto;
+		}
+
+		.page-navigator,
+		.page-menu,
+		.page-menu-item,
+		.page-menu-link {
+			height: 2.5rem;
+		}
+
+		.page-logo {
+			display: block;
+			float: left;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: bold;
+			font-size: 1.8rem;
+			font-variant: small-caps;
+			line-height: 2.5rem;
+			letter-spacing: 0.1em;
+			text-transform: lowercase;
+			color: #e6539e;
+		}
+
+		.page-logo-x {
+			text-transform: uppercase;
+			color: rgba(255,255,255,0.75);
+		}
+
+		.page-menu {
+			float: right;
+			overflow: hidden;
+			box-sizing: content-box;
+			max-width: 40rem;
+			padding-right: 2.5rem;
+			border-radius: 5rem;
+			background-image: url(img/menu-botton.svg);
+			background-size: contain;
+			background-position: right center;
+			cursor: pointer;
+		}
+
+			.page-menu:hover {
+				width: 70%;
+				padding-right: 0;
+				box-shadow: 0 0 1rem -0.5rem black;
+				background-color: rgba(255,255,255,0.2);
+				background-image: none;
+			}
+
+				.page-menu:hover .page-menu-item,
+				.page-menu-link {
+					display: block;
+				}
+
+		.page-menu-item {
+			display: none;
+			float: left;
+			width: 20%;
+		}
+
+			.page-menu-item + .page-menu-item {
+				border-left: 1px solid rgba(255,255,255,0.25)
+			}
+
+			.page-menu-item:hover {
+				background-color: rgba(255,255,255,0.5)
+			}
+
+			.page-menu-item:active {
+				background-color: rgba(0,0,0,0.25)
+			}
+
+				.page-menu-item:active, .page-menu-item:active + .page-menu-item {
+					border-left: none
+				}
+
+		.page-menu-link {
+			font-size: 0.85rem;
+			line-height: 2.5rem;
+			white-space: nowrap;
+			text-align: center;
+			text-transform: lowercase;
+			color: #fff;
+		}
+
+		.page-title {
+			margin: 10% 0 5% 0;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 2rem;
+			font-weight: bold;
+			color: #e6539e;
+		}
+
+		.page-preamble {
+			margin: 5% 10%;
+			text-align: justify;
+			text-align-last: center;
+		}
+
+		.page-header .button {
+			color: rgba(255,255,255,0.5)
+		}
+	</style>
+	<nav class="page-navigator">
+		<span class="page-logo">District <span class="page-logo-x">X</span></span>
+		<ul class="page-menu">
+			<li class="page-menu-item"><a href="#market" class="page-menu-link">Market</a></li>
+			<li class="page-menu-item"><a href="#services" class="page-menu-link">Services</a></li>
+			<li class="page-menu-item"><a href="#mobile" class="page-menu-link">Mobile</a></li>
+			<li class="page-menu-item"><a href="#result" class="page-menu-link">Results</a></li>
+			<li class="page-menu-item"><a href="#blog" class="page-menu-link">Blog</a></li>
+		</ul>
+	</nav>
+	<h1 class="page-title">Enterprise-Scale Applications</h1>
+	<p class="page-preamble text">Fusce tempus odio a viverra gravida. Pellentesque porttitor sem mi, non interdum justo varius id. Sed iaculis orci purus, a congue lacus varius sagittis. Etiam ac ex in lorem placerat maximus consequat ac lorem. Praesent bibendum ultricies facilisis. Fusce nec nisi consequat, gravida tellus ac, auctor mauris. Morbi vitae rhoncus turpis, sed tristique augue. Aliquam dignissim tellus eget lorem interdum pellentesque.</p>
+	<span class="button">Lets's Get Started!</span>
+</header>
+
+<main>
+
+<section id="market" class="holder">
+	<style class="market-style">
+		#market {
+			margin-bottom: -25%;
+			padding: 0 0 25% 0;
+			font-weight: 500;
+			background-color: #fff;
+			background-clip: content-box;
+			color: #1b2e4f;
+		}
+
+			#market .market-content {
+				margin-bottom: calc(-25% + 1px);
+				padding: 5% 10% 20% 10%;
+				background-image: url(img/word-market.svg), url(img/background-02.svg);
+				background-size: 50%, 100%;
+				background-position: 20% 0, center bottom;
+			}
+
+			#market .market-counters,
+			#market .market-counter-text + .market-counter-title {
+				margin-top: 3rem;
+			}
+
+			#market .market-counter-title,
+			#market .market-counter-text {
+				padding-left: 4rem;
+				white-space: nowrap;
+			}
+
+			#market .market-counter-title {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+				background-position-y: bottom;
+			}
+
+				#market .market-counter-title.icon-1 {
+					background-image: url(img/icon-01.svg);
+				}
+
+					#market .market-counter-title.icon-1 .market-counter-value {
+						color: #e6539e;
+					}
+
+				#market .market-counter-title.icon-2 {
+					background-image: url(img/icon-02.svg);
+				}
+
+					#market .market-counter-title.icon-2 .market-counter-value {
+						color: #728c9a;
+					}
+
+			#market .market-counter-value {
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-size: 5rem;
+				font-weight: bold;
+				line-height: 4rem;
+			}
+
+			#market .market-counter-text {
+				font-size: 1.2rem;
+				line-height: 2rem;
+				text-transform: lowercase;
+			}
+	</style>
+	<div class="market-content">
+		<header>
+			<h2>Market</h2>
+		</header>
+		<dl class="market-counters">
+			<dt class="market-counter-title icon-1"><span class="market-counter-value">56</span> <span class="market-counter-unit">billion</span></dt>
+			<dd class="market-counter-text">App in the marketplace</dd>
+			<dt class="market-counter-title icon-2"><span class="market-counter-value">400</span> <span class="market-counter-unit">text</span></dt>
+			<dd class="market-counter-text">Apps enter the app-stores each day</dd>
+		</dl>
+	</div>
+</section>
+
+<section id="services" class="holder">
+	<style id="services-style">
+		#services {
+			margin-bottom: -10%;
+			padding: 20% 5% 0 5%;
+			background-image: url(img/background-03.svg), url(img/background-04.svg), radial-gradient(circle, #335b63, transparent 60%);
+			background-position: center top, center 88%, center;
+		}
+
+			#services h2 {
+				color: #fff;
+				text-align: right;
+			}
+
+			#services .service-item {
+				float: left;
+				height: 0;
+				width: calc((100% - 6%) / 4);
+				margin-left: 2%;
+				margin-top: 2%;
+				padding-bottom: calc((100% - 6%) / 4);
+				border: 1px solid rgba(255,255,255,0.2);
+				background-size: 50%, auto;
+				background-position: left bottom;
+			}
+
+				#services .service-item:empty {
+					visibility: hidden;
+				}
+
+				#services .service-item:nth-child(-n+4) {
+					margin-top: 0;
+				}
+
+				#services .service-item:nth-child(4n+1) {
+					margin-left: 0;
+					clear: left;
+				}
+
+				#services .service-item:nth-of-type(2) {
+					border-left-color: transparent;
+					border-bottom-color: transparent;
+					background-image: url(img/number-01.svg);
+				}
+
+				#services .service-item:nth-of-type(5) {
+					border-left-color: transparent;
+					border-top-color: transparent;
+					background-image: url(img/number-02.svg);
+				}
+
+				#services .service-item:nth-of-type(6) {
+					border: none;
+					box-shadow: 0 0 2rem -0.75rem black;
+					background-color: #f98465;
+					background-image: url(img/number-03.svg), radial-gradient(circle at left bottom, rgba(0,0,0,0.5), transparent);
+				}
+
+				#services .service-item:nth-of-type(7) {
+					border-left-color: transparent;
+					border-bottom-color: transparent;
+					background-image: url(img/number-04.svg);
+				}
+
+				#services .service-item:nth-of-type(8) {
+					border-left-color: transparent;
+					border-top-color: transparent;
+					background-image: url(img/number-05.svg);
+				}
+
+				#services .service-item:nth-of-type(11) {
+					border-left-color: transparent;
+					border-bottom-color: transparent;
+					background-image: url(img/number-06.svg);
+				}
+
+				#services .service-item:nth-of-type(12) {
+					border: none;
+					box-shadow: 0 0 2rem -0.75rem black;
+					background-color: #00acc1;
+					background-image: url(img/number-07.svg), radial-gradient(circle at left bottom, rgba(0,0,0,0.5), transparent);
+				}
+
+				#services .service-item:nth-of-type(16) {
+					width: calc((100% - 20%) / 4);
+					padding-bottom: calc((100% - 20%) / 4);
+					margin: -2% 0 0 4%;
+					border: none;
+					box-shadow: 0 0 2rem -0.75rem black;
+					background-color: #fff;
+					background-image: url(img/number-08.svg), radial-gradient(circle at left bottom, rgba(0,0,0,0.1), transparent);
+				}
+
+					#services .service-item:nth-of-type(16) * {
+						color: #728c9a;
+					}
+
+			#services .service-content {
+				padding: 5%;
+			}
+
+			#services .service-header {
+				margin-bottom: 10%;
+			}
+
+			#services .service-title {
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-size: 1rem;
+				letter-spacing: 0.1em;
+				color: rgba(255,255,255,0.75);
+			}
+
+			#services .service-description {
+				font-size: 0.7rem;
+			}
+	</style>
+	<header>
+		<h2>What we do</h2>
+	</header>
+	<ul class="services-list">
+		<li class="service-item"></li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Startegy</h4>
+				</header>
+				<p class="service-description text">Maecenas ut viverra mi. Nullam eros purus, finibus eu velit eu, tristique rutrum arcu.</p>
+			</div>
+		</li>
+		<li class="service-item"></li>
+		<li class="service-item"></li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Interface Design</h4>
+				</header>
+				<p class="service-description text">Pellentesque commodo lectus vitae purus finibus, quis mollis ex sagittis.</p>
+			</div>
+		</li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Branding</h4>
+				</header>
+				<p class="service-description text">Vivamus in imperdiet urna. Maecenas ac dictum est, id posuere nunc. Praesent id odio at tortor.</p>
+			</div>
+		</li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Development</h4>
+				</header>
+				<p class="service-description text">Pellentesque auctor varius ullamcorper. Fusce tincidunt posuere erat vel vulputate donec.</p>
+			</div>
+		</li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Customer Experience</h4>
+				</header>
+				<p class="service-description text">Aenean aliquet, magna sit amet maximus venenatis, libero nisl euismod.</p>
+			</div>
+		</li>
+		<li class="service-item"></li>
+		<li class="service-item"></li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Marketing</h4>
+				</header>
+				<p class="service-description text">Nullam posuere metus et nisi cursus, non tempor mauris ullamcorper. Nullam facilisis dolor et.</p>
+			</div>
+		</li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Analytics</h4>
+				</header>
+				<p class="service-description text">Maecenas malesuada vitae lacus ac aliquam. Maecenas malesuada vel turpis sed mollis.</p>
+			</div>
+		</li>
+		<li class="service-item"></li>
+		<li class="service-item"></li>
+		<li class="service-item"></li>
+		<li class="service-item">
+			<div class="service-content">
+				<header class="service-header">
+					<h4 class="service-title">Websites</h4>
+				</header>
+				<p class="service-description text">Ut id augue lobortis, pulvinar dolor id, sollicitudin augue.</p>
+			</div>
+		</li>
+	</ul>
+</section>
+
+<section id="mobile" class="holder">
+	<style id="mobile-style">
+		#mobile {
+			overflow: visible;
+			margin-top: 0;
+			padding: 1px 0 0 0;
+			background-image: url(img/background-05.svg), radial-gradient(circle, #9d3b62, transparent);
+			background-attachment: scroll, fixed;
+		}
+
+			#mobile h2 {
+				padding-left: 5%;
+				margin-top: -10%;
+			}
+
+			#mobile .mobile-content {
+				margin-top: 5%;
+				padding: 20% 5% 10% 50%;
+				background-image: url(img/phone.png);
+				background-position: 5% top;
+				background-size: auto 100%;
+			}
+
+			#mobile .title {
+				margin: 5% 0;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-size: 2rem;
+				font-weight: bold;
+				color: #e6539e;
+			}
+
+			#mobile .text {
+				text-align: justify;
+				text-align-last: center;
+			}
+
+			#mobile .slider {
+				overflow: hidden;
+				background-image: radial-gradient(circle, rgba(0,0,0,0.75), transparent 80%), linear-gradient(to bottom, #9d3b62 100vh, rgba(229,57,53),rgba(216,27,96),rgba(142,36,170),rgba(94,53,177),rgba(57,73,171),rgba(30,136,229),rgba(3,155,229),rgba(0,172,193),rgba(0,137,123),rgba(67,160,71),rgba(124,179,66),rgba(192,202,51),rgba(253,216,53),rgba(255,179,0),rgba(251,140,0),rgba(244,81,30),transparent 98%);
+				background-attachment: fixed, scroll;
+			}
+
+				#mobile .slider hr {
+					height: 100vh;
+					background-position: center;
+					background-size: auto 70%;
+					background-attachment: fixed;
+					box-shadow: inset 0 3rem 4rem -4rem black;
+					border: none;
+				}
+
+					#mobile .slider hr:nth-child(1) {
+						background-image: url(img/screen-01.png)
+					}
+
+					#mobile .slider hr:nth-child(2) {
+						background-image: url(img/screen-02.png)
+					}
+
+					#mobile .slider hr:nth-child(3) {
+						background-image: url(img/screen-03.png)
+					}
+
+					#mobile .slider hr:nth-child(4) {
+						background-image: url(img/screen-04.png)
+					}
+
+					#mobile .slider hr:nth-child(5) {
+						background-image: url(img/screen-05.png)
+					}
+
+					#mobile .slider hr:nth-child(6) {
+						background-image: url(img/screen-06.png)
+					}
+
+					#mobile .slider hr:nth-child(7) {
+						background-image: url(img/screen-07.png)
+					}
+
+					#mobile .slider hr:nth-child(8) {
+						background-image: url(img/screen-08.png)
+					}
+
+					#mobile .slider hr:nth-child(9) {
+						background-image: url(img/screen-09.png)
+					}
+
+					#mobile .slider hr:nth-child(10) {
+						background-image: url(img/screen-10.png)
+					}
+
+					#mobile .slider hr:nth-child(11) {
+						background-image: url(img/screen-11.png)
+					}
+
+					#mobile .slider hr:nth-child(12) {
+						background-image: url(img/screen-12.png)
+					}
+
+					#mobile .slider hr:nth-child(13) {
+						background-image: url(img/screen-13.png)
+					}
+
+					#mobile .slider hr:nth-child(14) {
+						background-image: url(img/screen-14.png)
+					}
+
+					#mobile .slider hr:nth-child(15) {
+						background-image: url(img/screen-15.png)
+					}
+
+					#mobile .slider hr:nth-child(16) {
+						background-image: url(img/screen-16.png)
+					}
+	</style>
+	<header>
+		<h2>Mobile Applications</h2>
+	</header>
+	<div class="mobile-content">
+		<p class="title">Robust Mobile</p>
+		<p class="text">Etiam pellentesque, felis quis efficitur mollis, leo libero maximus arcu, et molestie lectus lacus sit amet orci. Maecenas feugiat ornare ultricies. Maecenas ut viverra mi. Nullam eros purus, finibus eu velit eu, tristique rutrum.</p>
+	</div>
+	<div class="slider"><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /></div>
+</section>
+
+<section id="result" class="holder">
+	<style id="result-style">
+		#result {
+			margin-top: -14%;
+			padding: 14% 0 0 0;
+			background-image: url(img/background-06.svg), radial-gradient(circle, #e0073e, transparent 80%);
+			background-size: 100% auto, 100%;
+			background-position: center top, center;
+			background-attachment: scroll, fixed;
+			background-clip: border-box, content-box;
+		}
+
+			#result .result-header {
+				margin-top: -2rem;
+				padding-left: 5%;
+			}
+
+			#result .aliquam-title,
+			#result .mauris-title {
+				margin: 5% 0;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-size: 2rem;
+				font-weight: bold;
+			}
+
+			#result .mauris {
+				overflow: hidden;
+				padding: 5% 5% 0 20%;
+			}
+
+			#result .mauris-image {
+				float: left;
+				width: 45%;
+			}
+
+			#result .mauris-caption {
+				float: right;
+				width: 50%;
+				text-align: center;
+			}
+
+			#result .mauris-title {
+				color: #e6539e;
+			}
+
+			#result .mauris-text {
+				color: #728c9a;
+			}
+
+			#result .mauris-button {
+				margin: 5% auto 0 auto;
+				color: #e6539e;
+			}
+
+			#result .aliquam {
+				text-align: center;
+				background-image: url(img/background-08.svg);
+				background-size: 100%;
+				background-position: center bottom;
+			}
+
+			#result .aliquam-title {
+				color: #fff;
+			}
+
+			#result .drops-list {
+				overflow: hidden;
+				padding-bottom: 10%;
+			}
+
+			#result .drop-item {
+				float: left;
+				width: calc(70% / 3);
+				overflow: hidden;
+				border-radius: 0.5rem;
+				box-shadow: 0 2rem 2rem -1rem rgb(0,0,0,0.25);
+				background-position: center top;
+				background-size: 100% auto;
+			}
+
+			#result .drop-content {
+				margin-top: 25%;
+				padding: 0 10% 10% 10%;
+				background-color: #fff;
+				background-position: center top;
+				background-size: 40% auto;
+			}
+
+			#result .drop-icon {
+				box-sizing: content-box;
+				width: 30%;
+				margin: auto;
+				padding-top: 30%;
+				border: 0.2rem solid transparent;
+				border-radius: 50%;
+				background-position: center;
+				background-size: 100%;
+				cursor: pointer;
+			}
+
+			#result .drop-title {
+				margin: 10% auto;
+				color: #1b2e4f;
+			}
+
+			#result .drop-text {
+				font-size: 0.75rem;
+				color: #728c9a;
+			}
+
+			#result .drop-item.aenean {
+				margin-top: 10%;
+				margin-left: 10%;
+				background-image: url(img/drops-01.svg);
+			}
+
+				#result .drop-item.aenean .drop-icon {
+					background-color: #fee6e0;
+					background-image: url(img/icon-03.svg);
+				}
+
+					#result .drop-item.aenean .drop-icon:hover {
+						border-color: #f98465
+					}
+
+			#result .drop-item.proin {
+				margin-left: 5%;
+				margin-right: 5%;
+				background-image: url(img/drops-02.svg);
+			}
+
+				#result .drop-item.proin .drop-icon {
+					background-color: #e4ebff;
+					background-image: url(img/icon-04.svg);
+				}
+
+					#result .drop-item.proin .drop-icon:hover {
+						border-color: #769dff
+					}
+
+			#result .drop-item.morbi {
+				margin-top: 5%;
+				margin-right: 10%;
+				background-image: url(img/drops-03.svg);
+			}
+
+				#result .drop-item.morbi .drop-icon {
+					background-color: #fff2de;
+					background-image: url(img/icon-05.svg);
+				}
+
+					#result .drop-item.morbi .drop-icon:hover {
+						border-color: #ffca76
+					}
+	</style>
+	<header class="result-header">
+		<h2>Our results</h2>
+	</header>
+	<figure class="mauris">
+		<img class="mauris-image" src="img/figure-01.svg" />
+		<figcaption class="mauris-caption">
+			<h3 class="mauris-title">Mauris pretium</h3>
+			<p class="mauris-text text">Aliquam erat volutpat. Integer tellus leo, vulputate eu justo nec, viverra consectetur mauris. Aenean rutrum sodales nunc, nec sodales ex auctor.</p>
+			<span class="mauris-button button">Lets's Get Started!</span>
+		</figcaption>
+	</figure>
+	<section class="aliquam">
+		<header class="aliquam-header">
+			<h3 class="aliquam-title">Aliquam hendrerit urna</h3>
+		</header>
+		<ul class="drops-list">
+			<li class="drop-item aenean">
+				<section class="drop-content">
+					<header class="drop-header">
+						<hr class="drop-icon" />
+						<h4 class="drop-title">Aenean Velit Finibus</h4>
+					</header>
+					<p class="drop-text text">Etiam tristique interdum urna, eget porta eros tincidunt quis. Vivamus pulvinar, leo id pharetra varius.</p>
+				</section>
+			</li>
+			<li class="drop-item proin">
+				<section class="drop-content">
+					<header class="drop-header">
+						<hr class="drop-icon" />
+						<h4 class="drop-title">Proin Molestie Justo</h4>
+					</header>
+					<p class="drop-text text">Nunc consectetur nisi a leo varius ultrices vitae at magna. Cras sagittis erat purus, at vestibulum quam gravida eget.</p>
+				</section>
+			</li>
+			<li class="drop-item morbi">
+				<section class="drop-content">
+					<header class="drop-header">
+						<hr class="drop-icon" />
+						<h4 class="drop-title">Morbi Luctus Suscipit</h4>
+					</header>
+					<p class="drop-text text">Duis mi dolor, vehicula vitae vehicula cursus, maximus eget magna. Vivamus laoreet ultricies leo, eu posuere tortor maximus vel</p>
+				</section>
+			</li>
+		</ul>
+	</section>
+</section>
+
+<section id="diagrams" class="holder">
+	<style id="diagrams-style">
+		#diagrams {
+			margin-top: -1px;
+			background-color: #f6f6f6;
+		}
+
+			#diagrams .diagrams-title {
+				text-align: center;
+				color: #1b2e4f;
+			}
+
+			#diagrams .diagrams-text {
+				margin: 5% auto;
+				text-align: center;
+				color: #728c9a;
+			}
+
+			#diagrams .diagramа-panel {
+				overflow: hidden;
+				margin: 5% auto;
+				padding: 5%;
+				border-radius: 0.5rem;
+				box-shadow: 0 1.5rem 2rem -1rem rgb(0,0,0,0.25);
+				background-color: #fff;
+			}
+
+			#diagrams .diagramа-fugure {
+				float: left;
+				width: 40%;
+			}
+
+			#diagrams .columns-list {
+				overflow: hidden;
+			}
+
+			#diagrams .column {
+				float: left;
+				width: 25%;
+				height: 6rem;
+				font-size: 0.75rem;
+				line-height: 1rem;
+				text-align: center;
+				box-shadow: -0.25rem 0 0.75rem -0.5rem rgb(0,0,0,0.2);
+			}
+
+				#diagrams .column.v-10 {
+					padding-top: 3rem;
+					background-image: linear-gradient(to bottom, #fff 4rem, transparent);
+				}
+
+				#diagrams .column.v-12 {
+					padding-top: 2rem;
+					background-image: linear-gradient(to bottom, #fff 3rem, transparent);
+				}
+
+				#diagrams .column.v-14 {
+					padding-top: 1rem;
+					background-image: linear-gradient(to bottom, #fff 2rem, transparent);
+				}
+
+				#diagrams .column.v-16 {
+					background-image: repeating-linear-gradient(135deg, transparent 0 0.35rem, rgba(255,255,255,0.5) 0.35rem 0.5rem), linear-gradient(to bottom, #fff 1rem, transparent);
+				}
+
+			#diagrams .diagramа-panel.integer .column {
+				background-color: #769dff;
+				color: #769dff;
+			}
+
+			#diagrams .diagramа-panel.nulla .column {
+				background-color: #ffca76;
+				color: #ffca76;
+			}
+
+			#diagrams .diagramа-panel.maecenas .column {
+				background-color: #f98465;
+				color: #f98465;
+			}
+
+			#diagrams .diagramа-data {
+				float: right;
+				width: 55%;
+			}
+
+			#diagrams .diagramа-name {
+				font-size: 1.2rem;
+				font-weight: 500;
+				color: #1b2e4f;
+			}
+
+			#diagrams .diagramа-description {
+				margin-top: 1rem;
+				color: #728c9a;
+			}
+	</style>
+	<header>
+		<h2 class="diagrams-title">Diagrams</h2>
+	</header>
+	<p class="diagrams-text text">Integer vehicula, massa eget tincidunt scelerisque, ex purus hendrerit justo, et porttitor tortor ex eu orci. Nullam nec turpis varius, porta sapien sed, auctor mi. Donec eget justo nec massa dapibus vestibulum. Sed pretium aliquet iaculis. Aenean id ipsum eu sapien luctus tempor. Suspendisse pulvinar lobortis risus, eget facilisis ipsum maximus quis. Nullam tempor ipsum eu elit condimentum pharetra. Proin eu consectetur lorem. Donec imperdiet nulla ac quam pharetra, nec faucibus nisl semper.</p>
+	<section class="diagramа-panel maecenas">
+		<figure class="diagramа-fugure">
+			<ul class="columns-list">
+				<li class="column v-14">0.14</li>
+				<li class="column v-10">0.10</li>
+				<li class="column v-12">0.12</li>
+				<li class="column v-16">0.16</li>
+			</ul>
+		</figure>
+		<div class="diagramа-data">
+			<header class="diagramа-header">
+				<h4 class="diagramа-name">Maecenas rhoncus</h4>
+			</header>
+			<p class="diagramа-description text">Vivamus aliquam ante nunc, eu elementum diam auctor ac vestibulum accumsan ac risus vitae.</p>
+		</div>
+	</section>
+	<section class="diagramа-panel integer">
+		<figure class="diagramа-fugure">
+			<ul class="columns-list">
+				<li class="column v-10">0.10</li>
+				<li class="column v-14">0.14</li>
+				<li class="column v-16">0.16</li>
+				<li class="column v-12">0.12</li>
+			</ul>
+		</figure>
+		<div class="diagramа-data">
+			<header class="diagramа-header">
+				<h4 class="diagramа-name">Integer sed nisi</h4>
+			</header>
+			<p class="diagramа-description text">Cras tincidunt est mauris, nec cursus turpis ultricies vel vivamus auctor et diam at dignissim.</p>
+		</div>
+	</section>
+	<section class="diagramа-panel nulla">
+		<figure class="diagramа-fugure">
+			<ul class="columns-list">
+				<li class="column v-14">0.14</li>
+				<li class="column v-16">0.16</li>
+				<li class="column v-12">0.12</li>
+				<li class="column v-10">0.10</li>
+			</ul>
+		</figure>
+		<div class="diagramа-data">
+			<header class="diagramа-header">
+				<h4 class="diagramа-name">Nulla sit amet</h4>
+			</header>
+			<p class="diagramа-description text">In sodales mi at libero pellentesque, congue facilisis augue condimentum mauris sed congue sapien.</p>
+		</div>
+	</section>
+
+</section>
+
+<section id="partners">
+	<style id="partners-style">
+		#partners {
+			overflow: hidden;
+			padding: 0;
+			background-image: url(img/background-09.svg), url(img/background-10.svg), radial-gradient(circle, #9d3b62, transparent);
+			background-position: center top, center bottom, center;
+			background-size: 100% auto, 100% auto, auto;
+			background-attachment: scroll, scroll, fixed;
+		}
+
+			#partners .partners-list {
+				overflow: hidden;
+			}
+
+			#partners .partner-item {
+				float: left;
+				padding: 10% 0;
+				width: 25%;
+			}
+
+				#partners .partner-item:hover {
+					background-color: rgba(255,255,255,0.25);
+				}
+
+			#partners .partner-logo {
+				margin: auto;
+				object-position: center;
+				object-fit: contain;
+			}
+	</style>
+	<ul class="partners-list">
+		<li class="partner-item"><img class="partner-logo" src="img/partner-01.svg" /></li>
+		<li class="partner-item"><img class="partner-logo" src="img/partner-02.svg" /></li>
+		<li class="partner-item"><img class="partner-logo" src="img/partner-03.svg" /></li>
+		<li class="partner-item"><img class="partner-logo" src="img/partner-04.svg" /></li>
+	</ul>
+</section>
+
+<section id="blog" class="holder">
+	<style id="blog-style">
+		#blog {
+			margin-top: -1px;
+			background-color: #fff;
+			background-image: url(img/word-news.svg), url(img/social-line.svg);
+			background-size: 75%, 50%;
+			background-position: right top, right center;
+		}
+
+			#blog .post-list {
+				padding: 5% 40% 5% 0;
+			}
+
+			#blog .post-title {
+				font-size: 1rem;
+				font-weight: 500;
+				color: #1b2e4f;
+			}
+
+			#blog .post-preamble {
+				margin: 1rem auto;
+				text-align: justify;
+				color: #728c9a;
+			}
+
+			#blog .post-button {
+				color: #1b2e4f;
+			}
+
+			#blog .post-body + .post-title {
+				margin-top: 2rem;
+			}
+	</style>
+	<header>
+		<h2>From the Blog</h2>
+	</header>
+	<dl class="post-list">
+		<dt class="post-title">Duis eget interdum lectus</dt>
+		<dd class="post-body">
+			<p class="post-preamble text">Phasellus mauris erat, ultricies in nunc vel, laoreet imperdiet ligula. Ut eget posuere sapien. Fusce in massa sit amet lacus rutrum scelerisque. Quisque gravida metus et risus auctor ultricies.</p>
+			<span class="post-button button">read more</span>
+		</dd>
+
+		<dt class="post-title">Vivamus sollicitudin</dt>
+		<dd class="post-body">
+			<p class="post-preamble text">Aliquam dolor elit, luctus condimentum odio et, imperdiet ornare magna. Nulla sit amet turpis ac velit pulvinar blandit ut sed sapien. Vestibulum elementum eget risus a porta.</p>
+			<span class="post-button button">read more</span>
+		</dd>
+
+		<dt class="post-title">Aenean sagittis</dt>
+		<dd class="post-body">
+			<p class="post-preamble text">Pellentesque eu tellus sit amet justo elementum molestie eget et erat. Quisque in dolor eu leo porta facilisis. Nam et vestibulum neque. Vivamus suscipit tortor nec interdum convallis.</p>
+			<span class="post-button button">read more</span>
+		</dd>
+	</dl>
+</section>
+
+<footer class="page-footer holder">
+	<style id="page-footer-style">
+		.page-footer {
+			padding: 10%;
+			background-image: url(img/background-11.svg), url(img/logo-x.svg), radial-gradient(circle, #335b63, transparent);
+			background-position: center top, center, center;
+			background-size: 100% auto, auto 50%, auto;
+			text-align: center;
+		}
+
+			.page-footer .page-title {
+				color: #00acc1
+			}
+
+			.page-footer .button {
+				color: rgba(255,255,255,0.5)
+			}
+	</style>
+	<div class="page-footer-content">
+		<h1 class="page-title">Proin sodales sapien diam</h1>
+		<p class="page-preamble text">Mauris mauris sem, placerat molestie cursus sit amet, elementum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ut posuere felis. Donec lobortis libero dignissim libero molestie, sit amet posuere velit mattis. Nullam in sem augue. Morbi at dolor sed ex laoreet malesuada eget sed quam. Mauris ac mattis nisi, in consequat metus.</p>
+		<span class="button">Lets's Get Started!</span>
+	</div>
+</footer>
+
+</main>
+
+</body>
+</html>
